@@ -1,0 +1,332 @@
+/*
+ * Portfolio Site Stylesheet
+ *
+ * This stylesheet defines the look and feel for Luca's
+ * professional portfolio. The design is minimalist and
+ * contemporary, using a neutral colour palette with
+ * blue and teal accents. It has been structured to
+ * support responsive layouts on both desktop and
+ * mobile devices. To keep the site self‑contained
+ * and compatible with GitHub Pages, no external
+ * dependencies are loaded – fonts fall back to
+ * system defaults and icons are provided via
+ * locally generated images.
+ */
+
+/* CSS custom properties provide a single place to
+   adjust the core colours of the site. */
+:root {
+  --color-primary: #047cff;
+  --color-secondary: #0a192f;
+  --color-accent: #00bfa6;
+  --color-light: #f5f7fa;
+  --color-dark: #1c2b38;
+  --font-title: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Global reset and typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Header styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 25, 47, 0.9);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+header h1 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--color-accent);
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  background-image: url('images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 25, 47, 0.7);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-family: var(--font-title);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .cta-btn {
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero .cta-btn:hover,
+.hero .cta-btn:focus {
+  background-color: #009c86;
+}
+
+/* Section styling */
+section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h3 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* About section */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1 1 250px;
+}
+
+.about-text {
+  flex: 2 1 350px;
+  font-size: 1rem;
+  color: var(--color-dark);
+}
+
+.about-text p + p {
+  margin-top: 1rem;
+}
+
+/* Projects section */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary);
+}
+
+.project-content p {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.project-content button {
+  align-self: flex-start;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.project-content button:hover,
+.project-content button:focus {
+  background-color: #0364c0;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+}
+
+.modal-content h4 {
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+}
+
+.modal-content .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-content .close-btn:hover,
+.modal-content .close-btn:focus {
+  color: var(--color-primary);
+}
+
+/* Contact section */
+.contact-info {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-dark);
+}
+
+.contact-info a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-secondary);
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+  section {
+    padding: 4rem 1rem;
+  }
+}

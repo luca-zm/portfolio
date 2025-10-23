@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio di Luca, ingegnere informatico e application architect. Scopri i progetti sviluppati e contattalo per collaborazioni." />
+    <title>Portfolio di Luca</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Fixed header with navigation links -->
+    <header>
+      <h1>Luca Portfolio</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Progetti</a></li>
+          <li><a href="#contact">Contatti</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h2>Ciao, sono Luca</h2>
+        <p>Ingegnere informatico e Application Architect certificato Salesforce. Mi occupo di creare soluzioni SaaS, database e web app efficaci e scalabili.</p>
+        <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Contattami</button>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about">
+      <h3>Chi sono</h3>
+      <div class="about">
+        <div class="about-image">
+          <!-- Placeholder for profile image -->
+          <img src="images/profile.png" alt="Avatar di Luca" />
+        </div>
+        <div class="about-text">
+          <p>Mi chiamo Luca e sono un ingegnere informatico con esperienza decennale nello sviluppo di software e applicazioni cloud. Ho iniziato la mia carriera lavorando con sistemi SaaS e database, diventando nel tempo Application Architect certificato Salesforce.</p>
+          <p>Attualmente sto approfondendo le competenze da cloud architect con particolare attenzione all'intelligenza artificiale applicata alle piattaforme. Sono appassionato di design dell'esperienza utente e mi piace trasformare le idee in soluzioni digitali funzionanti e intuitive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects">
+      <h3>Progetti</h3>
+      <div class="projects-container">
+        <!-- Project 1: Medicamee -->
+        <div class="project-card" data-project="medicamee">
+          <div class="project-image" style="background-image: url('images/medicamee_icon.png');"></div>
+          <div class="project-content">
+            <h4>Medicamee</h4>
+            <p>Una applicazione mobile per la gestione dei farmaci e dei promemoria terapeutici. Aiuta gli utenti a seguire correttamente le prescrizioni.</p>
+            <button onclick="openModal('medicamee')">Leggi di più</button>
+          </div>
+        </div>
+        <!-- Project 2: Gestionale Aziendale -->
+        <div class="project-card" data-project="gestion"><div class="project-image" style="background-image: url('images/management_icon.png');"></div>
+          <div class="project-content">
+            <h4>Gestionale aziendale</h4>
+            <p>Un software SaaS per la gestione aziendale sviluppato con Codex. Automatizza anagrafiche, fatturazione e flussi operativi.</p>
+            <button onclick="openModal('gestion')">Leggi di più</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="modal" id="modal-medicamee">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal('medicamee')">&times;</button>
+        <h4>Medicamee</h4>
+        <p>Medicamee è un'applicazione mobile nata per semplificare la gestione delle terapie farmacologiche. Attraverso una interfaccia intuitiva, consente di registrare i farmaci, impostare promemoria per l'assunzione e monitorare l'andamento della terapia. L'obiettivo è migliorare l'aderenza alle prescrizioni e fornire ai pazienti uno strumento affidabile per il benessere quotidiano.</p>
+        <p><strong>Tecnologie utilizzate:</strong> React Native, Node.js, PostgreSQL.</p>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-gestion">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal('gestion')">&times;</button>
+        <h4>Gestionale aziendale</h4>
+        <p>Il gestionale aziendale è un sistema SaaS in corso di sviluppo tramite Codex che mira a digitalizzare i processi interni dell'azienda. Comprende moduli per l'anagrafica clienti e fornitori, fatturazione elettronica, gestione delle risorse e delle attività. L'architettura modulare consente di adattare le funzionalità alle esigenze delle diverse realtà aziendali.</p>
+        <p><strong>Tecnologie utilizzate:</strong> Next.js, Supabase, Tailwind CSS.</p>
+      </div>
+    </div>
+
+    <!-- Contact section -->
+    <section id="contact">
+      <h3>Contattami</h3>
+      <div class="contact-info">
+        <p>Se vuoi collaborare o semplicemente fare due chiacchiere sui miei progetti, non esitare a contattarmi.</p>
+        <p>Email: <a href="mailto:luca@example.com">luca@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noopener">linkedin.com/in/luca</a></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Luca. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- Script for modal interaction -->
+    <script>
+      function openModal(key) {
+        var modal = document.getElementById('modal-' + key);
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      }
+      function closeModal(key) {
+        var modal = document.getElementById('modal-' + key);
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
+      // Close modal when clicking outside content
+      window.addEventListener('click', function (event) {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function (modal) {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
